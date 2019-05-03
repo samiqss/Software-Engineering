@@ -1,0 +1,46 @@
+GIT repository for csci265/lab02a
+
+Quiz 2a readme
+
+The objective of this week's quiz is to work with some of the
+most core aspects of version control: branching, merging, and
+resolving merge conflicts.
+
+Having successfully forked/cloned this repository (otherwise you
+wouldn't be reading this!), use the ls command to see the files
+in the repository.
+
+Instructions:
+
+1. Create a new branch of this repository, named Experiment.
+
+2. Use the appropriate git command to checkout the new branch.
+
+3. Edit the ThingsToDo file to include the sentence
+   "Gotta add a test plan soon"
+
+4. Use the appropriate git commands to add the revised file
+   and commit (with message "added test plan to TTD").
+
+5. Use the appropriate git command to checkout the master branch.
+
+6. Edit the ThingsToDo file to include the sentence
+   "Gotta finish the specifications right away"
+
+7. Use the appropriate git commands to add the revised file
+   and commit (with message "added test plan to TTD").
+
+8. Use the appropriate git command to checkout the Experiment branch.
+
+9. Run the following command to try a merge between the two branches:
+
+       git merge master
+
+   This should result in a conflict because of the different changes
+   in the two versions of the ThingsToDo file.  Resolve the conflict
+   to keep both changes (but get rid of the extra text git added to
+   highlight the conflict).
+
+10. Check out what the results look like in gitk, then perform
+    your final add, commit, and push to the central repository.
+

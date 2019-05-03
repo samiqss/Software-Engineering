@@ -1,0 +1,127 @@
+
+lab07a README
+
+This lab consists of two parts:
+ 1. writing a bug report
+ 2. working with the gdb debugger
+
+In this exercise first you'll be compiling and executing a program,
+and writing a bug report on the observed incorrect behaviour.
+
+You will then be re-compiling the program for use with gdb,
+and running it in gdb, examining program behaviour as you proceed.
+You will be answering questions as you go (putting the answers in
+a "Answers.txt" file) and you will also be using the "script" command
+to record your debugging session.
+
+The gdb part is a relatively mechanical exercise, meant to ensure
+the student has practised the use of the gdb debugger for setting
+breakpoints, examining the values of variables, studying the active
+stack, etc.
+
+Part 1: The bug report
+----------------------
+First, compile and run the program, using the command:
+  g++ broken.cpp -Wall -Wextra -o broken
+
+The program is a mildly broken iterative solution to the classic
+   Towers of Hanoi problem.  (Learn more about Towers of Hanoi at
+   wikipedia.org/wiki/Tower_of_Hanoi if interested.)
+
+Run the program, e.g. "./broken", and you will see that it does
+move all the blocks from one tower to another, but then proceeds
+to tell the user to make one more invalid move.
+
+In file BugReport.txt, create a bug report for the problem following
+the bug reporting guidelines given in file Guidelines.txt in this
+repository.  (The guidelines are closely patterned after the Bugzilla
+bug reporting guidelines.)
+
+Part 2: Debugging with gdb
+--------------------------
+
+The implementation uses a collection of stacks instead of
+recursion, with a well known algorithm for determining which
+stacks and which directions to use for individual moves.
+
+You will be compiling the program and then experimenting with
+it in the gdb debugger, following a specific sequence of commands
+given below.  The script command (detailed below) will record your
+actions and the results, and you will be answering a series of
+questions as you go, putting your answers in file Answers.txt in
+this repository before submitting.
+
+The script command at the start and the exit command at the end
+are particularly important - they start/stop recording all the commands
+you type and all the gdb output displayed on the screen, storing it all
+in file GDBsession.txt.
+
+If, for any reason, you exit the script early, please be sure you re-run
+the command "script -a GDBsession.txt" to ensure it resumes recording
+your actions and the results.
+
+Steps:
+======
+
+(a) begin recording the current debug session using the command
+       script -a GDBsession.txt
+
+(b) compile the program and start the debugger using commands
+       gcc -g broken.cpp -Wall -Wextra -o broken
+       gdb broken
+
+(c) set up breakpoints to get the function to stop at line 48
+    and when it enters function makeMove
+       break 48
+       break makeMove
+
+(d) get gdb to start running the program using the command
+       run
+
+QUESTION 1: what output does the program produce before the first breakpoint,
+   and what additional information does gdb provide when the breakpoint
+   is reached?  (Make it clear in your answer which is which.)
+
+(e) use the print command to display the contents of variable srcNum
+       p srcNum
+
+QUESTION 2: what value is displayed for srcNum and why?
+
+(f) use the next command (n) twice, then the step command (s) twice.
+
+QUESTION 3: what line of the program is it now stopped on?  Explain why.
+
+(g) set a "watch" on variable t.currSize so the program will stop if it changes.
+       watch t.currSize
+
+(h) use the "c" command to let it continue running
+
+QUESTION 4: what happens to the watchpoint when it continues?
+
+(i) change the value of variable ??? to ???, then use cont to let the
+    program resume running.
+
+(j) use the where command to show which functions are active
+    and what lines they are currently on
+        where
+
+QUESTION 5: what is the output of the where command, and why?
+
+(k) clear the two breakpoints you have set in the program
+        clear makeMove
+        clear 48
+
+(l) use cont again to let the program resume running until it ends.
+        cont
+
+QUESTION 6: what in the final output makes you think there is probably a bug?
+
+(m) use quit to exit the debugger
+        quit
+
+(n) use the command exit to stop the script recording
+        exit
+
+Remember to do a git add . (there are lots of files to submit in this one),
+a git commit, and a push.
+

@@ -1,0 +1,91 @@
+
+Lab 10
+------
+
+The objective of this final lab is to become familiar with
+two program profiling tools: gprof and valgrind.
+
+There are two programs (and a makefile) provided in the repository:
+   graph.C (its executable is graph)
+   gen.C   (its executable is generator)
+
+Your task is to analyze the cpu and memory performance of the graph
+program on input problems of increasing size.
+
+The graph program allows a user to create and analyze a directed graph,
+where the graph is built as a collection of vertices and edges.
+Aside from allowing the user to add/remove vertices and edges,
+it allows them to
+ - print the graph,
+ - perform a depth-first search of the graph,
+ - perform a breadth-first search of the graph,
+ - find a minimal spanning tree for the graph.
+
+The generator program allows the user to generate appropriate instructions
+to build and analyze a random graph.  For instance, to build a random graph
+of 200 nodes and 1000 edges, then print the graph, do a breadth first search,
+depth first search, and find a minimal spanning tree, the command is:
+
+   generator 200 1000 | graph
+
+A sample such graph, with 1000 nodes and 6000 edges, is in file test1000.
+
+Experimenting with varying numbers of nodes and edges, your goal is to
+analyze both the cpu and memory performance of the graph program --
+attempting to establish the relationship, if any, between the number of
+nodes and/or edges and the running time and memory consumption of the
+program.
+
+Furthermore, the program was never fully finished, and certainly has some
+memory management issues which you should investigate and report on.
+
+The tools you will use for your analysis are gprof (primarily for the
+run time analysis) and valgrind (primarily for the memory management
+and analysis).
+
+Make sure the executables are up to date, and graph has been compiled with
+the -g and -pg option (as per the makefile).
+
+
+CPU ANALYSIS
+------------
+To analyze the cpu use, for each run of each program use gprof as follows:
+
+  1. run the program with the desired options, e.g.
+        graph < test1000
+     this will have created a gmon.out file that is used by gprof in step 2
+
+  2. run gprof with the executable name, and store the results in a file e.g.
+        gprof graph > results1000
+
+     note that once you become familiar with the gprof output you may want to add the
+        -b option to generate less verbose output, e.g.
+           gprof graph -b > results1000
+
+     it is a good idea to remove the gmon.out file now, so it does not interfere with
+        any further tests
+
+If you need more information on how to read gprof's output try
+   ftp://ftp.gnu.org/old-gnu/Manuals/gprof/html_chapter/gprof_5.es.html
+
+MEMORY ANALYSIS
+---------------
+To analyze the memory/stack use, for each run of the program use valgrind as follows:
+  1. run valgrind --tool=massif --stacks=yes --time-unit=B  graph < FILENAME, e.g.
+        valgrind --tool=massif --stacks=yes --time-unit=B graph < test1000
+  2. the valgrind run will have created a new file, massif.out.PID where PID is an integer
+        (the process id of the program you just ran).
+     Make note of the PID value.
+  3. run ms_print on the massif.out.PID file you just located, e.g.
+        ms_print massif.out.7358
+
+To analyze for memory leaks, you can perform step 1 using the leak check options
+   shown in the example below.
+         valgrind --leak-check=full --show-leak-kinds=all -v   graph < test1000
+
+Put your report analyzing the results and explaining your conclusions in a plain text file
+    named report.txt in the repository before you do your usual add/commit/push.
+
+If you need more information on how to read massif's output try
+   valgrind.org/docs/manual/ms-manual.html
+

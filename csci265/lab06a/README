@@ -1,0 +1,48 @@
+
+Lab 6 (lab06a, lab06b)
+----------------------
+
+This lab focuses on researching various topics and
+applying the knowledge gained, primarily concentrating
+on the C++ standard libraries, but also including some
+bash and makefile material.
+
+Part 1
+------
+Answer each of the following questions in the included lab6.txt file.
+An excellent resource site for the C++ questions is
+   cplusplus.com/reference
+
+(1) What are the names of the C++ libraries and constants that:
+    (a) give the precision of a 'double'
+    (b) identify the largest random number that can be
+        generated through the rand() function call.
+
+(2) What are the names of the C++ libraries that provide/support:
+    (a) regular expressions on C-style strings (arrays of char)
+    (b) "wide" characters - chars beyond the usual ascii set
+        (such as unicode)
+    (c) the base exception class used specifically for run-time exceptions.
+
+(3) What are the names of the C++ libraries and functions that provide:
+    (a) a generic swap function
+    (b) a generic quicksort function.
+
+Part 2
+------
+Write a short C++ program in lab6.cpp that demonstrates the use of at least
+four of the elements from questions (1)-(3) above.
+
+Part 3
+------
+Write a makefile that builds your program from part 3, and that
+also includes a target named 'submit' that performs a git add,
+commit, and push of your lab solutions.
+
+Part 4
+------
+Research the linux -x +x -X and -Y options for the ssh command,
+and conduct an experiment to see if any of them can be used to
+resolve the X11-related error messages students have experienced
+with the "ssh csci" commands during our various git exercises.
+

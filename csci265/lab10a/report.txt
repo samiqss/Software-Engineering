@@ -1,0 +1,17 @@
+Lab 10 Sami Al-Qusus CSCI265 Dec 4, 2017
+
+CPU ANALYSIS
+Not able to To analyze the cpu use, for each run of each program use gprof because I keep getting a segmentation fault for every graph or graph_gprof run.
+
+/graph test1000
+
+Segmentation fault
+
+MEMORY ANALYSIS
+Not able to do memory analysis, because memory allocation fails.
+
+valgrind --tool=massif --stacks=yes --time-unit=B ./graph_valgrind < test1000
+
+valgrind: mmap(0x60b000, 67141632) failed in UME with error 12 (Cannot allocate memory).
+
+

@@ -1,0 +1,125 @@
+Recording of the gdb debugging session
+
+Script started on Fri 03 Nov 2017 01:20:42 AM PDT
+]0;alqususs@otter: ~/csci265/lab07a[01;32malqususs@otter[00m:[01;34m~/csci265/lab07a[00m$ gcc -g broken.cpp -Wall -Wextra -o broken
+/tmp/ccAQDKPj.o: In function `initialize(Tower&, int, ID)':
+/home/student/alqususs/csci265/lab07a/broken.cpp:32: undefined reference to `operator new[](unsigned long)'
+/home/student/alqususs/csci265/lab07a/broken.cpp:32: undefined reference to `__cxa_throw_bad_array_new_length'
+/tmp/ccAQDKPj.o: In function `release(Tower&)':
+/home/student/alqususs/csci265/lab07a/broken.cpp:53: undefined reference to `operator delete[](void*)'
+/tmp/ccAQDKPj.o: In function `transfer(int, Tower&, Tower&, Tower&)':
+/home/student/alqususs/csci265/lab07a/broken.cpp:106: undefined reference to `pow'
+collect2: error: ld returned 1 exit status
+]0;alqususs@otter: ~/csci265/lab07a[01;32malqususs@otter[00m:[01;34m~/csci265/lab07a[00m$ gcc -g broken.cpp -Wall -Wextra -o broken[1P[1P[1@+[1@+
+]0;alqususs@otter: ~/csci265/lab07a[01;32malqususs@otter[00m:[01;34m~/csci265/lab07a[00m$ gdb broken
+GNU gdb (Debian 7.12-6) 7.12.0.20161007-git
+Copyright (C) 2016 Free Software Foundation, Inc.
+License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
+This is free software: you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.  Type "show copying"
+and "show warranty" for details.
+This GDB was configured as "x86_64-linux-gnu".
+Type "show configuration" for configuration details.
+For bug reporting instructions, please see:
+<http://www.gnu.org/software/gdb/bugs/>.
+Find the GDB manual and other documentation resources online at:
+<http://www.gnu.org/software/gdb/documentation/>.
+For help, type "help".
+Type "apropos word" to search for commands related to "word"...
+Reading symbols from broken...done.
+(gdb) break 48
+Breakpoint 1 at 0xa1a: file broken.cpp, line 48.
+(gdb) break makeMove
+Breakpoint 2 at 0xb40: file broken.cpp, line 75.
+(gdb) run
+Starting program: /home/student/alqususs/csci265/lab07a/broken 
+
+Transferring 3 disks from tower 0 to tower 1
+   Tower[0]: 3,2,1,
+   Tower[1]: 
+   Tower[2]: 
+
+
+Breakpoint 2, makeMove (currSrc=..., currDest=...) at broken.cpp:75
+75	   int srcNum = pop(currSrc);
+(gdb) p srcNum
+$1 = 1074266112
+(gdb) n
+
+Breakpoint 1, pop (t=...) at broken.cpp:48
+48	   return t.disks[--t.currSize];
+(gdb) n
+49	}
+(gdb) s
+makeMove (currSrc=..., currDest=...) at broken.cpp:76
+76	   int destNum = pop(currDest);
+(gdb) s
+pop (t=...) at broken.cpp:47
+47	   if (t.currSize == 0) return EMPTY;
+(gdb) watch t.currSize
+Hardware watchpoint 3: t.currSize
+(gdb) c
+Continuing.
+
+Watchpoint 3 deleted because the program has left the block in
+which its expression is valid.
+0x0000555555554b5b in makeMove (currSrc=..., currDest=...) at broken.cpp:76
+76	   int destNum = pop(currDest);
+(gdb) p srcNum
+$2 = 1
+(gdb) p destNum
+$3 = 0
+(gdb) srcNum=0
+Undefined command: "srcNum".  Try "help".
+(gdb) set srcNum=0$srcNum=0
+(gdb) where
+#0  0x0000555555554b5b in makeMove (currSrc=..., currDest=...) at broken.cpp:76
+#1  0x0000555555554d74 in transfer (disks=3, src=..., dest=..., aux=...) at broken.cpp:125
+#2  0x0000555555554f0a in main (argc=1, argv=0x7fffffffe4a8) at broken.cpp:163
+(gdb) clear makeMove
+Deleted breakpoint 2 
+(gdb) clear 48
+Deleted breakpoint 1 
+(gdb) cont
+Continuing.
+Move the top disk (1) from tower 0 to tower 1
+   Tower[0]: 3,2,
+   Tower[1]: 1,
+   Tower[2]: 
+Move the top disk (2) from tower 0 to tower 2
+   Tower[0]: 3,
+   Tower[1]: 1,
+   Tower[2]: 2,
+Move the top disk (1) from tower 1 to tower 2
+   Tower[0]: 3,
+   Tower[1]: 
+   Tower[2]: 2,1,
+Move the top disk (3) from tower 0 to tower 1
+   Tower[0]: 
+   Tower[1]: 3,
+   Tower[2]: 2,1,
+Move the top disk (1) from tower 2 to tower 0
+   Tower[0]: 1,
+   Tower[1]: 3,
+   Tower[2]: 2,
+Move the top disk (2) from tower 2 to tower 1
+   Tower[0]: 1,
+   Tower[1]: 3,2,
+   Tower[2]: 
+Move the top disk (1) from tower 0 to tower 1
+   Tower[0]: 
+   Tower[1]: 3,2,1,
+   Tower[2]: 
+Move the top disk (-1) from tower 2 to tower 0
+   Tower[0]: -1,
+   Tower[1]: 3,2,1,
+   Tower[2]: 
+
+Done!!!
+
+[Inferior 1 (process 30564) exited normally]
+(gdb) quit
+]0;alqususs@otter: ~/csci265/lab07a[01;32malqususs@otter[00m:[01;34m~/csci265/lab07a[00m$ exit
+exit
+
+Script done on Fri 03 Nov 2017 01:37:25 AM PDT

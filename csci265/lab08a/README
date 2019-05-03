@@ -1,0 +1,46 @@
+
+Lab 8
+=====
+Lab 8 is a take-home exercise, to be made available Friday November 3rd
+(for both sections) and due at 4pm Friday November 10th (also for both
+sections).
+
+Overview:
+---------
+The objective in this lab is to complete the implementation of two perl
+functions, buildContactList and buildReverseList, in file lab08.pl.
+Skeletal versions of the two functions are provided in that file,
+along with detailed specifications on the two functions and the
+data structures they are supposed to manipulate.
+
+The lab08.pl includes implementations of two additional functions,
+validEmail and validPhone, which should be used to test the validity
+of supplied email addresses and phone numbers.
+
+Infrastructure:
+---------------
+Other scripts must be able to 'require' your lab08.pl file so they
+can call the two functions when needed.  As such:
+
+  (i) your lab08.pl file must end with the following line:
+      1;
+
+  (ii) your lab08.pl file should not include anything other than
+       the specified function implementations - i.e. any test cases,
+       calls, etc. must be done from other scripts (like the tester.pl
+       script described below).
+
+A test script, tester.pl, is supplied, and can be run to provide a
+very basic test of your two functions.  Feel free to create more
+advanced test scripts based on tester.pl, but it might be wise
+to leave the original tester.pl unmodified to ensure your functions
+still work with it.
+
+Grading
+-------
+The lab grading will be based only on your lab08.pl file, and will
+be carried out by a script similar to tester.pl (though with a more
+thorough set of test cases).  If your two functions do not conform to
+the specifications, or if they require special additional constraints
+on the testing script, then they will likely do poorly in grading.
+

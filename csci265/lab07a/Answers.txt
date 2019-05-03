@@ -1,0 +1,67 @@
+My answers to the gdb questions
+============================================================================
+
+Answer to Question1:
+
+program output before first breakpoint:
+............................................................................
+Starting program: /home/student/alqususs/csci265/lab07a/broken 
+
+Transferring 3 disks from tower 0 to tower 1
+   Tower[0]: 3,2,1,
+   Tower[1]: 
+   Tower[2]:
+............................................................................
+Program does not give additional information on reaching  breakpoint 1 because it doesn't necessarily go through the program line by line only
+
+==============================================================================
+
+Answer to QUESTION 2:
+..............................................................................
+$1 = 1074266112 
+...............................................................................
+because srcNum is yet to be initialized on line 75 by the command 
+	int srcNum = pop(currSrc);
+gdb prints some garbage
+
+================================================================================
+
+Answer to QUESTION 3:
+Its stopped at line 47 as its indicated at the end of the first line of the output
+and at the beginning of the second line of the output 
+
+================================================================================
+
+Answer to QUESTION 4: 
+its deleted because the program left the block in which its expression is valid.
+
+================================================================================
+
+Answer to QUESTION 5:
+.................................................................................
+#0  0x0000555555554b5b in makeMove (currSrc=..., currDest=...) at broken.cpp:76
+#1  0x0000555555554d74 in transfer (disks=3, src=..., dest=..., aux=...) at broken.cpp:125
+#2  0x0000555555554f0a in main (argc=1, argv=0x7fffffffe4a8) at broken.cpp:163
+.................................................................................
+It shows that the program is currently in makeMove function called through the transfer function which is called in the main function
+
+=================================================================================
+
+QUESTION 6: what in the final output makes you think there is probably a bug?
+.................................................................................
+
+Move the top disk (-1) from tower 2 to tower 0
+   Tower[0]: -1,
+   Tower[1]: 3,2,1,
+   Tower[2]: 
+..................................................................................
+
+One extra invalid iteration is done after final move.
+A possible fix might be subtracting one from the iteration size
+
+UPDATE:
+I actually fixed it so yes if you subtract one from MOVES on line 124 the problem is solved. 
+==================================================================================
+
+--------------------------------END of ANSWERS------------------------------------
+

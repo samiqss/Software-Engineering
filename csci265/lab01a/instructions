@@ -1,0 +1,65 @@
+
+lab1 instructions
+
+---------- Part 1: basics ---------------------------------------------
+
+ - login to your linux account
+
+ - open a browser (Applications --> Internet --> Chrome or Firefox)
+   and go to url
+       csci.viu.ca/~wesselsd/courses/csci265
+   then navigate to the labs page and the lab 1 quiz page
+
+ - open a terminal window (Applications --> System Tools --> MateTerminal)
+
+---------- Part 2: today only -----------------------------------------
+
+ - if you have not previously done so, use mkdir to create a directory
+   (here in your home directory) for your course material,
+   naming the directory csci265
+
+---------- Part 3: getting the lab repository -------------------------
+
+ - follow the instructions on the quiz1 web page to fork/clone lab01a
+
+ - use cd appropriately to move into the newly created repository
+
+ - type ls, make sure the repository contains the "instructions" file,
+   if not, follow the website instructions to clear your central repository
+   and local directory and try Part 3 again
+
+---------- Part 4: some linux and an add/commit/push ------------------
+
+ - run the commands as follows to store the output in a new lab1.txt file,
+   being careful to use > and >> exactly as shown
+
+      pwd > lab1.txt
+      ls -alF >> lab1.txt
+      date >> lab1.txt
+
+ - run the appropriate git commands to add lab1.txt to the repository tracking,
+   commit the change, with the commit message "part 1 complete", and push
+   the changes to the central repository
+
+---------- Part 5: more linux and an add/commit/push ------------------
+
+ - use the cp command to make a copy of lab1.txt,
+   naming the new file lab1.bak (in the same directory as lab1.txt)
+
+ - run the commands below, again being careful to use >> exactly as shown
+      ls -alF >> lab1.txt
+      git status >> lab1.stat
+
+ - perform an appropriate git add, commit (with message "part 2 complete")
+   and push the changes to the central repository
+
+---------- Part 6: final linux and an add/commit/push ------------------
+
+ - edit the readme file (preferably with vim or emacs),
+   changing the top line to contain your name
+
+ - perform an appropriate git add, commit (with message "part 3 complete")
+   and push the changes to the central repository
+
+ - logout (under the System menu)
+

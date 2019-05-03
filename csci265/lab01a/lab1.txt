@@ -1,0 +1,41 @@
+/home/student/alqususs/csci265/lab01a
+total 28
+drwxr-xr-x 3 alqususs alqususs 4096 Sep 11 16:17 ./
+drwxr-xr-x 3 alqususs alqususs 4096 Sep 11 16:09 ../
+drwxr-xr-x 8 alqususs alqususs 4096 Sep 11 16:09 .git/
+-rw-r--r-- 1 alqususs alqususs   41 Sep 11 16:09 .gitignore
+-rw-r--r-- 1 alqususs alqususs 2282 Sep 11 16:09 instructions
+-rw-r--r-- 1 alqususs alqususs   38 Sep 11 16:17 lab1.txt
+-rw-r--r-- 1 alqususs alqususs   34 Sep 11 16:09 README
+Mon Sep 11 16:17:47 PDT 2017
+total 32
+drwxr-xr-x 3 alqususs alqususs 4096 Sep 11 16:26 ./
+drwxr-xr-x 3 alqususs alqususs 4096 Sep 11 16:09 ../
+drwxr-xr-x 8 alqususs alqususs 4096 Sep 11 16:22 .git/
+-rw-r--r-- 1 alqususs alqususs   41 Sep 11 16:09 .gitignore
+-rw-r--r-- 1 alqususs alqususs 2282 Sep 11 16:09 instructions
+-rw-r--r-- 1 alqususs alqususs  472 Sep 11 16:26 lab1.bak
+-rw-r--r-- 1 alqususs alqususs  472 Sep 11 16:17 lab1.txt
+-rw-r--r-- 1 alqususs alqususs   34 Sep 11 16:09 README
+total 36
+drwxr-xr-x 3 alqususs alqususs 4096 Sep 11 16:27 ./
+drwxr-xr-x 3 alqususs alqususs 4096 Sep 11 16:09 ../
+-rw-r--r-- 1 alqususs alqususs    0 Sep 11 16:27 exactly
+drwxr-xr-x 8 alqususs alqususs 4096 Sep 11 16:27 .git/
+-rw-r--r-- 1 alqususs alqususs   41 Sep 11 16:09 .gitignore
+-rw-r--r-- 1 alqususs alqususs 2282 Sep 11 16:09 instructions
+-rw-r--r-- 1 alqususs alqususs  472 Sep 11 16:26 lab1.bak
+-rw-r--r-- 1 alqususs alqususs  428 Sep 11 16:26 lab1.stat
+-rw-r--r-- 1 alqususs alqususs  935 Sep 11 16:26 lab1.txt
+-rw-r--r-- 1 alqususs alqususs   34 Sep 11 16:09 README
+total 36
+drwxr-xr-x 3 alqususs alqususs 4096 Sep 11 16:27 ./
+drwxr-xr-x 3 alqususs alqususs 4096 Sep 11 16:09 ../
+-rw-r--r-- 1 alqususs alqususs    0 Sep 11 16:27 exactly
+drwxr-xr-x 8 alqususs alqususs 4096 Sep 11 16:27 .git/
+-rw-r--r-- 1 alqususs alqususs   41 Sep 11 16:09 .gitignore
+-rw-r--r-- 1 alqususs alqususs 2282 Sep 11 16:09 instructions
+-rw-r--r-- 1 alqususs alqususs  472 Sep 11 16:26 lab1.bak
+-rw-r--r-- 1 alqususs alqususs  918 Sep 11 16:27 lab1.stat
+-rw-r--r-- 1 alqususs alqususs 1514 Sep 11 16:27 lab1.txt
+-rw-r--r-- 1 alqususs alqususs   34 Sep 11 16:09 README

@@ -1,0 +1,37 @@
+Readme: lab03a
+
+In this repository you will find a shell script named
+   tempConv.sh, which defines function tempConv
+
+The purpose of the function is to convert between celsius and fahrenheit,
+   where the user supplies a temperature and the scale used, and the
+   function computes and displays the temperature in the other scale.
+E.g. to convert 100 degrees fahrenheit to the equivalent in celsius:
+   tempConv 100 f
+
+To load the script, use the command
+   source tempConv.sh
+You can then call the function directly from the linux command line, e.g.
+   tempConv 212 C
+
+For today's lab, you will be adding robust error checking
+   to the function - currently it has no error checking at all.
+
+The error checking you add should at least include:
+  - making sure the correct number of command line arguments are provided
+  - making sure the temperature is an integer (positive or negative)
+  - making sure the scale provided is one of F, f, C, or c
+
+Informative, appropriate error messages should be provided to the user
+if an error is detected, and the function can then end.
+
+Note that after each change to the script you need to re-run the
+   source tempConv.sh
+to load the new changes and allow you to test them.
+
+I **STRONGLY** recommend you add one element of error checking at a time,
+testing and committing after each new improvement is added, thus ensuring
+that after each commit you still have a functional script.  Marks will be
+given for each incremental improvement, but there will be heavy deductions
+if the script doesn't work at all.
+

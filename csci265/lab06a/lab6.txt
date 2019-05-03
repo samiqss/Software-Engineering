@@ -1,0 +1,18 @@
+
+.... answers to the lab written questions go here ...
+
+Q1. 
+(a) percision of double's cignificand constant is DBL_MANT_DIG in <float.h> library 
+
+(b) RAND_MAX in <stdlib.h>
+
+Q2.
+(a) <regex>
+(b) <wchar.h>
+(c) <stdexcept>
+
+Q3.
+(a) swap in <algorithm>
+(b) qsort in <stdlib.h>
+
+

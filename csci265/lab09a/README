@@ -1,0 +1,48 @@
+
+Lab 9
+-----
+
+The objectives in this lab are to gain experience with the use of our own modules
+and the use of perl's Test module, developing a test script to test a solution
+to the buildContactHash function from the previous lab.
+
+In this lab your specific task is to write script lab09.pl, which should
+use perl's Test::More to automate testing of the buildContactHash function
+from lab 8.  A sample implementation of the function has been given in
+module lab08.pm, and the lab09.pl script has been set up to use that module.
+
+NOTE YOU ARE ONLY REQUIRED TO TEST THE FUNCTIONALITY OF buildContactHash
+(not the intricacies of what validPhone/validEmail accept or reject).
+
+For lab 9, we've added some restrictions on the output produced by
+the buildContactHash function:
+  (1) if an invalid email address is detected, the output displayed
+      by the function must include the string 'Warning: invalid email'
+  (2) if an invalid phone number is detected, the output displayed
+      by the function must include the string 'Warning: invalid phone'
+  (3) if a duplicate email address is detected, the output displayed
+      by the function must include the string 'Warning: duplicate email'
+  (4) if an invalid contact list is detected, the output displayed
+      by the function must include the string 'Error: invalid contacts'
+  (5) if no warnings or errors are generated, then the output displayed
+      by the function must include the string 'All entries valid'
+
+A sample implementation of buildContactHash (and the implementations of
+validEmail and validPhone) are provided in module lab08 (file lab08.pm)
+in this repository.
+
+(Note: I'll also be running your lab09.pl tester on a variety of other
+ buildContactHash functions that are defective in different ways.)
+
+The grading for the lab will be based primarily on your effective and efficient
+use of the Test::More module to automate testing and evaluation of the solution.
+It is not intended as an exercise in simply creating hundreds of repetitive
+hard-coded test cases.
+
+Your solution can include the use of additional test scripts or files,
+but make sure you remember to add them all to your repository before
+your final commit/push.
+
+Some introductory notes and examples on using Test::More are available at
+  csci.viu.ca/~wesselsd/courses/csci265/labs/perl/index.html
+

@@ -1,0 +1,37 @@
+# lab04a readme
+
+# task: to create a script named searchTrash.sh
+#       that allows the user to check the trash and see if
+#       it contains any of their material from a specified
+#       course and repository
+#
+# usage:
+#    the user is able to enter the command
+#        ./searchTrash.sh courseId assignmentName
+#    e.g. to search for course csci200 the user would enter
+#        ./searchTrash.sh csci200 lab1
+#
+# behaviour:
+#    the script will then perform the appropriate commands to
+#        get a list of what they have in the trash and pipe that
+#        through grep for both the specified course and then
+#        the specified repository
+#    e.g. for csci200 lab1 it would display the results of
+#        ssh csci D list-trash | grep csci200 | grep lab1
+#
+# exception handling:
+#    if an incorrect number of command line arguments is provided
+#       a suitable error message is displayed and the script ends
+#    the command must be run from the core directory for the course,
+#       e.g. ~/csci200 in the example above, otherwise the script
+#       should generate an error message and terminate
+#
+# NOTES/TESTING AIDS:
+# -------------------
+#    if you want to experiment with your script, there is an extra csci265
+#       repository posted that you can attempt forking/cloning: trashExpt
+#    remember you can move something from your central repo to the trash with:
+#       ssh csci D trash csci265/$user/trashExpt
+#       (or whatever repository you actually trashed)
+#
+
